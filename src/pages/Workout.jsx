@@ -10,8 +10,7 @@ function Home() {
       <Link to="/" relative="path" className = "underline text-violet-900">
       Home
     </Link>
-    <div className = "align-center h-100 w-500">
-    <Button></Button></div>
+    <div className = "h-screen flex items-center justify-center"><Button></Button></div>
     </div>
     
   );
