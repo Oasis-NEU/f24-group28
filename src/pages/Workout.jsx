@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from "react-router-dom";
-import "./Workout.css"
 
 function Home() {
   return (
@@ -11,7 +10,7 @@ function Home() {
       Home
     </Link>
     <div className = "container">
-      <button type="button" className = "bg-blue">Enter workout</button></div>
+      <button type="button" className = "bg-blue-200 underline">Enter workout</button></div>
     </div>
     
   );
