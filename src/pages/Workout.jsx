@@ -1,16 +1,17 @@
 import React from 'react';
 import { Link } from "react-router-dom";
+import Button from '../components/button';
 
 function Home() {
   return (
     <div>
       <h1>Hello, World!</h1>
       <p>This is a simple React page.</p> 
-      <Link to="/" relative="path">
+      <Link to="/" relative="path" className = "underline text-violet-900">
       Home
     </Link>
-    <div className = "container">
-      <button type="button" className = "bg-blue-200 underline">Enter workout</button></div>
+    <div className = "align-center h-100 w-500">
+    <Button></Button></div>
     </div>
     
   );
