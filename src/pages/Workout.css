@@ -1,0 +1,15 @@
+button {
+    color: #000000;
+    font-weight: 500;
+  }
+
+.container {
+    height: 100px;
+    width: 800px;
+}
+
+.center {
+    top: 50%;
+    left: 50%;
+    position: absolute;
+}
