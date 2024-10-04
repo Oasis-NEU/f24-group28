@@ -6,28 +6,49 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import "./index.css";
-import Home from "./pages/Workout";
+import Workout from "./pages/Workout";
+import Intro from "./pages/intro";
+import Links from "./components/links"
 import "./output.css";
+
+
+// 1. import `ChakraProvider` component
+import { ChakraProvider } from '@chakra-ui/react'
+
+// function App() {
+//   // 2. Wrap ChakraProvider at the root of your app
+//   return (
+//     <ChakraProvider>
+//       <main.jsx/>
+//     </ChakraProvider>
+//   )
+// }
+
 
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <div>
-      <h2>Start your new workout!</h2>
-      <Link to="/workout" relative="path">Go to workout page</Link>
-      </div>,
-    
+    element: <Links></Links>
   },
   {
     path: "/workout",
-    element: <Home></Home>
+    element: <Workout></Workout>
+  },
+  {
+    path: "/intro",
+    element: <Intro></Intro>
   }
+
+
+    
   
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <ChakraProvider>
+      <RouterProvider router={router} />
+    </ChakraProvider>
   </React.StrictMode>
 );

@@ -2,11 +2,10 @@ import React from 'react';
 import { Link } from "react-router-dom";
 import Button from '../components/button';
 
-function Home() {
+function Workout() {
   return (
     <div>
       <h1>Hello, World!</h1>
-      <p>This is a simple React page.</p> 
       <Link to="/" relative="path" className = "underline text-violet-900">
       Home
     </Link>
@@ -16,4 +15,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default Workout;
