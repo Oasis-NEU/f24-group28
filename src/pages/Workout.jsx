@@ -8,8 +8,8 @@ function Workout() {
       <h1>Hello, World!</h1>
       <Link to="/" relative="path" className = "underline text-violet-900">
       Home
-    </Link>
-    <div className = "h-screen flex items-center justify-center"><Button></Button></div>
+    </Link>    <div className = "h-screen flex items-center justify-center"><Button></Button></div>
+
     </div>
     
   );

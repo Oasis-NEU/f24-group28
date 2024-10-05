@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Button from '../components/button';
 import { Select } from '@chakra-ui/react'
 import { Stack } from '@chakra-ui/react'
+import Title from "../components/title";
 
 const dayOptions=[
     "1 day",
@@ -19,37 +20,40 @@ const goalOptions=[
     "Powerlifting",
 ]
 
+
 function Intro() {
   return (
-    <div>
-        
-      <div>
+      <div className = "w-full">
+        <Title></Title>
+        <Stack spacing={4} className = "flex items-center">
 
-        <Stack spacing={4}>
-        <h1 className = "text-2xl font-bold font-serif">Start making your new workout!</h1>
-
-        <h1 className = "text-xl">
+        <h1 className = "text-xl w-1/2 text-center">
             How many days a week do you want to work out? 
         </h1>
-            <Select placeholder=' ' size='lg' variant='filled'>
-                {dayOptions.map((value,index)=>{
-                    return <option value={index+1}>{value}</option>
+        <div className = "w-1/4">
+        <Select placeholder="Select days" size="lg" variant="filled">
+            {dayOptions.map((value, index) => {
+                return <option value={index+1}>{value}</option>
                 })}
-  
-            </Select>
+                </Select>
+                </div>
+
             <h1 className = "text-xl">
             What is your main goal? 
         </h1>
-            <Select placeholder=' ' size='lg' variant='filled'>
-                {goalOptions.map((value,index)=>{
-                    return <option value={index+1}>{value}</option>
+        <div className = "w-1/4">
+        <Select placeholder='Choose goal' size='lg' variant='filled'>
+            {goalOptions.map((value,index)=>{
+                return <option value={index+1}>{value}</option>
                 })}
-            </Select>
-        </Stack>
-      </div>
-    </div>
-    
-  );
-}
+                </Select>
+                </div>
+                </Stack>
+                <div className = "h-1/2 flex justify-center m-10">
+                <div className = "flex items-end"> <Button></Button></div>
+                </div>
+                </div>
+                );
+            }
 
 export default Intro;

@@ -2,7 +2,7 @@
 
 function Button() {
     return (
-        <button type="button" className = "bg-blue-200 underline">Enter workout</button>     
+        <button type="button" className = "p-8 bg-gray-100 text-gray-800 text-3xl w-80">Submit</button>     
     );
   }
   export default Button;
