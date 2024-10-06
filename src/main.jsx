@@ -14,6 +14,7 @@ import "./output.css";
 
 // 1. import `ChakraProvider` component
 import { ChakraProvider } from '@chakra-ui/react'
+import { CookiesProvider } from "react-cookie";
 
 // function App() {
 //   // 2. Wrap ChakraProvider at the root of your app
@@ -23,7 +24,6 @@ import { ChakraProvider } from '@chakra-ui/react'
 //     </ChakraProvider>
 //   )
 // }
-
 
 
 const router = createBrowserRouter([
@@ -40,7 +40,6 @@ const router = createBrowserRouter([
     element: <Intro></Intro>
   }
 
-
     
   
 ]);
@@ -49,6 +48,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <ChakraProvider>
       <RouterProvider router={router} />
+      <CookiesProvider defaultSetOptions />
     </ChakraProvider>
   </React.StrictMode>
 );
