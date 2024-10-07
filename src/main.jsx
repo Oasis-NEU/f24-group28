@@ -10,7 +10,7 @@ import Workout from "./pages/Workout";
 import Intro from "./pages/intro";
 import Links from "./components/links"
 import "./output.css";
-
+import { useCookies } from 'react-cookie'
 
 // 1. import `ChakraProvider` component
 import { ChakraProvider } from '@chakra-ui/react'
@@ -39,9 +39,6 @@ const router = createBrowserRouter([
     path: "/intro",
     element: <Intro></Intro>
   }
-
-    
-  
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
@@ -53,3 +50,8 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     </ChakraProvider>
   </React.StrictMode>
 );
+
+const [cookies, getCookies] = useCookies(['user'])
+if(document.location.href != "http://localhost:5174/intro" && cookies.inx==undefined){
+  document.location = "./intro"
+}
