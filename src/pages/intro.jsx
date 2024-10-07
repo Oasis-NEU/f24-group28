@@ -23,7 +23,7 @@ function Intro() {
         <GoalDropdown></GoalDropdown>
         </Stack>
         <div className = "h-1/2 flex justify-center m-10">
-        <div className = "flex items-end"> <Button></Button></div>
+        <div className = "flex items-end"> <Link to="/workout" relative="path"><Button></Button></Link></div>
         </div>
         </div>
         );
