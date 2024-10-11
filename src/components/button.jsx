@@ -1,6 +1,3 @@
-import { CookiesProvider, useCookies } from 'react-cookie';
-
-
 function Button(props) {
 
     // function onChange(newName) {
@@ -9,7 +6,7 @@ function Button(props) {
     const handleClick = () => {
         const dayDropdownInput = document.getElementById("DayDropdownInput")
         const goalDropdownInput = document.getElementById("GoalDropdownInput")
-        const cookieValue = dayDropdownInput.value + "," + goalDropdownInput.value
+        const cookieValue = dayDropdownInput.value + goalDropdownInput.value
         props.setCookie("input", cookieValue)
         //console.log(dayDropdownInput.value + "" + goalDropdownInput.value)
         //console.log(cookies.input)
