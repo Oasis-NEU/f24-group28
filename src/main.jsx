@@ -51,7 +51,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   </React.StrictMode>
 );
 
-const [cookies, getCookies] = useCookies(['user'])
-if(document.location.href != "http://localhost:5174/intro" && cookies.inx==undefined){
-  document.location = "./intro"
-}
+//const [cookies, getCookies] = useCookies(['user'])
+//if(document.location.href != "http://localhost:5174/intro" && cookies.inx==undefined){
+  //document.location = "./intro"
+//}
