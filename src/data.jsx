@@ -1,4 +1,4 @@
-const data = {
+    data = {
     "2":{
       "Strength":{
         1: ["workout", "another"],
@@ -124,9 +124,8 @@ const data = {
     1: [["bench", 3, "4-6"], "another"],
         2: [["bench", 3, "4-6"], "another"],
         3: [["bench", 3, "4-6"], "another"],
-        4: ["rest"]},
-    
+        4: ["rest"]}
+      
     
 
-}
 
