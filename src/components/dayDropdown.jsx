@@ -1,13 +1,11 @@
 import { Select } from '@chakra-ui/react'
 
 const dayOptions=[
-    "1 day",
     "2 days",
     "3 days",
     "4 days",
     "5 days",
     "6 days",
-    "7 days"
 ]
 
 function DayDropdown() {

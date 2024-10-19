@@ -4,10 +4,20 @@ function Button(props) {
     //   setCookie('name', newName);
     // }
     const handleClick = () => {
-        const dayDropdownInput = document.getElementById("DayDropdownInput")
-        const goalDropdownInput = document.getElementById("GoalDropdownInput")
-        const cookieValue = dayDropdownInput.value + goalDropdownInput.value
+            const dayDropdownInput = document.getElementById("DayDropdownInput");
+            const goalDropdownInput = document.getElementById("GoalDropdownInput");
+    
+            // Get the current value of dayDropdownInput, convert to a number and add 1
+            const dayValue = parseInt(dayDropdownInput.value, 10); // Convert to integer
+            const incrementedDayValue = dayValue + 1; // Increment by 1
+    
+            // Get the value of goalDropdownInput
+            const goalValue = goalDropdownInput.value;
+    
+            // Create cookie value as a string with incremented day value and goal value
+            const cookieValue = `${incrementedDayValue}${goalValue}`;
         props.setCookie("input", cookieValue)
+        console.log(cookies.input)
         //console.log(dayDropdownInput.value + "" + goalDropdownInput.value)
         //console.log(cookies.input)
     }

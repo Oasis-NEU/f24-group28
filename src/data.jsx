@@ -1,6 +1,6 @@
   const data = {
     "2": {
-      "Functional Hypertrophy":{
+      "1":{
         1: [["Bench Press", 3, "5-8"], 
         ["Pec-Dec", 3, "5-8"], 
         ["Pull Ups/Assisted Pull Ups", 3, "5-8"],
@@ -33,7 +33,7 @@
         13: ["rest"],
         14: ["rest"]
         },
-      "Hypertrophy": {
+      "2": {
         1: [["Incline Dumbbell Press", 3, "8-12"],
             ["Pec-Dec", 3, "8-12"],
             ["Lat Pulldown Machine", 3, "8-12"],
@@ -66,7 +66,7 @@
         13: ["rest"],
         14: ["rest"]
       },
-      "Strength": {
+      "3": {
         1: [["Squats", 5, "3-5"],
             ["Deadlifts", 5, "3-5"],
             ["Bench Press", 5, "3-5"],
@@ -85,7 +85,7 @@
       },
     },
     "3": {
-      "Functional Hypertrophy": {
+      "1": {
         1: [["Lat Pulldowns", 3, "5-8"],
             ["T-Bar Row", 3, "5-8"],
             ["Kneeling Single-Arm Cable Lat-Pulldown", 3, "5-8"],
@@ -108,7 +108,7 @@
         6: ["rest"],
         7: ["rest"],
       },
-      "Hypertrophy": {
+      "2": {
       1: [
         // Focus on upper chest, shoulders, triceps
         ["Incline Dumbbell Press", 3, "8-12"],
@@ -166,7 +166,7 @@
       13: ["rest"],
       14: ["rest"]
     },
-      "Strength": {
+      "3": {
         1: [["Barbell Squats", 5, "3-5"],
             ["Deadlifts", 5, "3-5"],
             ["Bench Press", 5, "3-5"],
@@ -189,7 +189,7 @@
       },
     },
     "4": {
-    "Functional Hypertrophy": {
+    "1": {
       1: [
         ["Barbell Bench Press", 3, "5-8"],
         ["Incline Dumbbell Press", 3, "5-8"],
@@ -222,7 +222,7 @@
         ["EZ Bar Curls", 3, "5-8"]
       ]
     },
-    "Hypertrophy": {
+    "2": {
       1: [
         ["Incline Dumbbell Press", 3, "8-12"],
         ["Cable Flies", 3, "8-12"],
@@ -255,7 +255,7 @@
         ["EZ Bar Curls", 3, "8-12"]
       ]
     },
-    "Strength": {
+    "3": {
       1: [
         ["Barbell Squats", 5, "3-5"],
         ["Deadlifts", 5, "3-5"],
@@ -283,7 +283,7 @@
     },  
 
     "5": {
-    "Functional Hypertrophy": {
+    "1": {
       1: [
         ["Barbell Bench Press", 3, "5-8"],
         ["Incline Dumbbell Press", 3, "5-8"],
@@ -322,7 +322,7 @@
         ["Calf Raises", 3, "5-8"]
       ]
     },
-    "Hypertrophy": {
+    "2": {
       1: [
         ["Incline Dumbbell Press", 3, "8-12"],
         ["Pec-Dec", 3, "8-12"],
@@ -361,7 +361,7 @@
         ["Calf Raises", 3, "8-12"]
       ]
     },
-    "Strength": {
+    "3": {
       1: [
         ["Barbell Squats", 5, "3-5"],
         ["Deadlifts", 5, "3-5"],
@@ -403,7 +403,7 @@
   },
 
     "6": {
-    "Functional Hypertrophy": {
+    "1": {
       1: [
         ["Barbell Bench Press", 3, "5-8"],
         ["Incline Dumbbell Press", 3, "5-8"],
@@ -448,7 +448,7 @@
       ],
       7: ["rest"]
     },
-    "Hypertrophy": {
+    "2": {
       1: [
         ["Incline Dumbbell Press", 3, "8-12"],
         ["Pec-Dec", 3, "8-12"],
@@ -493,7 +493,7 @@
       ],
       7: ["rest"]
     },
-    "Strength": {
+    "3": {
       1: [
         ["Barbell Squats", 5, "3-5"],
         ["Deadlifts", 5, "3-5"],
@@ -529,3 +529,4 @@
 
     }
   };
+export default data

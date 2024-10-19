@@ -1,9 +1,9 @@
 import { Select } from '@chakra-ui/react'
 
 const goalOptions=[
-    "Muscle building",
-    "Strength building",
-    "Powerlifting",
+    "Functional hypertrophy",
+    "Hypertrophy",
+    "Strength",
 ]
 
 function GoalDropdown () {

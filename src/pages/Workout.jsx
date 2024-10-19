@@ -3,16 +3,13 @@ import { Link } from "react-router-dom";
 import Button from '../components/button';
 import WorkoutButton from '../components/workoutButton';
 import { CookiesProvider, useCookies } from 'react-cookie'
+import Schedule from '../components/schedule';
 
 function Workout() {
+  const [cookies, setCookie] = useCookies(['user'])
   return (
     <div>
-      <h1>Hello, World!</h1>
-      <Link to="/" relative="path" className = "underline text-violet-900">
-      Home
-    </Link>
-    {/* <div className = "h-screen flex items-center justify-center"></div> */}
-    <WorkoutButton></WorkoutButton>
+      <Schedule cookies = {cookies} ></Schedule>
     </div>
     
   );
