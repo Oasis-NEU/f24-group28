@@ -1,9 +1,12 @@
+import data from "../data";
+
 function Button(props) {
 
     // function onChange(newName) {
     //   setCookie('name', newName);
     // }
     const handleClick = () => {
+        console.log("rteet")
             const dayDropdownInput = document.getElementById("DayDropdownInput");
             const goalDropdownInput = document.getElementById("GoalDropdownInput");
     
@@ -13,11 +16,26 @@ function Button(props) {
     
             // Get the value of goalDropdownInput
             const goalValue = goalDropdownInput.value;
+            for(let i = 1; i<=Object.keys(data[incrementedDayValue][goalValue]).length; i++){
+                //for(let j = 0; j<Object.keys(data[incrementedDayValue][goalValue][i]).length; j++){
+
+                // console.log(data[incrementedDayValue][goalValue][i][j])
+                console.log(data[incrementedDayValue][goalValue][i])
+
+                // props.setCookie("day"+i+"e"+j, `${data[incrementedDayValue][goalValue][i][j]}`)
+                props.setCookie("day"+i, `${data[incrementedDayValue][goalValue][i]}`)
+
+                
+                // dayData.push(data[(cookies.input).toString()[0]][(cookies.input).toString()[1]][i])
+                // console.log(data[(cookies.input).toString()[0]][(cookies.input).toString()[1]][i])
+              //}
+            }
     
             // Create cookie value as a string with incremented day value and goal value
-            const cookieValue = `${incrementedDayValue}${goalValue}`;
-        props.setCookie("input", cookieValue)
-        console.log(cookies.input)
+            //const cookieValue = `${incrementedDayValue}${goalValue}`;
+            
+        //props.setCookie("input", cookieValue)
+        //console.log(cookies.input)
         //console.log(dayDropdownInput.value + "" + goalDropdownInput.value)
         //console.log(cookies.input)
     }

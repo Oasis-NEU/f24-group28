@@ -11,6 +11,17 @@ function Workout() {
   const [cookies, setCookie] = useCookies(['user'])
   let dayData = [];
 // console.log("dayData:", Object.keys(data[(cookies.input).toString()[0]][(cookies.input).toString()[1]]).length)
+let lastCookie = 0;
+for(let i = 1; i<=14; i++){
+  let stringname = "day"+i
+  console.log(stringname)
+  console.log(cookies.stringname)
+  if(cookies.name){
+    lastCookie=i;
+    break;
+  }
+}
+console.log(lastCookie)
   for(let i = 1; i<=Object.keys(data[(cookies.input).toString()[0]][(cookies.input).toString()[1]]).length; i++){
     dayData.push(data[(cookies.input).toString()[0]][(cookies.input).toString()[1]][i])
     // console.log(data[(cookies.input).toString()[0]][(cookies.input).toString()[1]][i])
