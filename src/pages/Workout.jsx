@@ -8,7 +8,7 @@ import Schedule from '../components/schedule';
 function Workout() {
   const [cookies, setCookie] = useCookies(['user'])
   return (
-    <div>
+    <div className = "w-full">
       <Schedule cookies = {cookies} ></Schedule>
     </div>
     

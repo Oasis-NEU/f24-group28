@@ -12,7 +12,7 @@ function Schedule({cookies}) {
     const day6 = data[(cookies.input).toString()[0]][(cookies.input).toString()[1]][6]
     const day7 = data[(cookies.input).toString()[0]][(cookies.input).toString()[1]][7]
     return (
-        <Tabs>
+        <Tabs isFitted size = 'lg' variant = "enclosed">
   <TabList>
     <Tab>Day 1</Tab>
     <Tab>Day 2</Tab>
