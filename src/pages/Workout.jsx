@@ -5,28 +5,27 @@ import WorkoutButton from '../components/workoutButton';
 import { CookiesProvider, useCookies } from 'react-cookie'
 import Schedule from '../components/schedule';
 import WorkoutTable from '../components/table';
-import data from '../data';
+import { recommendedData } from '../data';
 
 function Workout() {
   const [cookies, setCookie] = useCookies(['user'])
   let dayData = [];
 // console.log("dayData:", Object.keys(data[(cookies.input).toString()[0]][(cookies.input).toString()[1]]).length)
 let lastCookie = 0;
-for(let i = 1; i<=14; i++){
-  let stringname = "day"+i
-  console.log(stringname)
-  console.log(cookies.stringname)
-  if(cookies.name){
-    lastCookie=i;
-    break;
-  }
-}
-console.log(lastCookie)
-  for(let i = 1; i<=Object.keys(data[(cookies.input).toString()[0]][(cookies.input).toString()[1]]).length; i++){
-    dayData.push(data[(cookies.input).toString()[0]][(cookies.input).toString()[1]][i])
+// for(let i = 1; i<=14; i++){
+//   setCookie('days{i}', data[(cookies.input)[0]][(cookies.input)[1]][i], { path: "/"})
+//   if(cookies.name){
+//     lastCookie=i;
+//     break;
+//   }
+// }
+// console.log(lastCookie)
+console.log(recommendedData)
+  // for(let i = 1; i<=Object.keys(data[(cookies.input).toString()[0]][(cookies.input).toString()[1]]).length; i++){
+    //dayData.push(data[(cookies.input).toString()[0]][(cookies.input).toString()[1]][i])
     // console.log(data[(cookies.input).toString()[0]][(cookies.input).toString()[1]][i])
-  }
-  console.log(dayData)
+  // }
+  // console.log(dayData)
   // const day1 = data[(cookies.input).toString()[0]][(cookies.input).toString()[1]][1]
   // const day2 = data[(cookies.input).toString()[0]][(cookies.input).toString()[1]][2]
   // const day3 = data[(cookies.input).toString()[0]][(cookies.input).toString()[1]][3]

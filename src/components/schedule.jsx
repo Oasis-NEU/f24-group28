@@ -1,16 +1,16 @@
 import { Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/react'
-import data from '../data';
+import { recommendedData } from '../data'
 
 function Schedule({cookies}) {
     console.log(cookies.input)
-    console.log(data[(cookies.input).toString()[0]])
-    const day1 = data[(cookies.input).toString()[0]][(cookies.input).toString()[1]][1]
-    const day2 = data[(cookies.input).toString()[0]][(cookies.input).toString()[1]][2]
-    const day3 = data[(cookies.input).toString()[0]][(cookies.input).toString()[1]][3]
-    const day4 = data[(cookies.input).toString()[0]][(cookies.input).toString()[1]][4]
-    const day5 = data[(cookies.input).toString()[0]][(cookies.input).toString()[1]][5]
-    const day6 = data[(cookies.input).toString()[0]][(cookies.input).toString()[1]][6]
-    const day7 = data[(cookies.input).toString()[0]][(cookies.input).toString()[1]][7]
+    console.log(recommendedData[(cookies.input).toString()[0]])
+    const day1 = recommendedData[(cookies.input).toString()[0]][(cookies.input).toString()[1]][1]
+    const day2 = recommendedData[(cookies.input).toString()[0]][(cookies.input).toString()[1]][2]
+    const day3 = recommendedData[(cookies.input).toString()[0]][(cookies.input).toString()[1]][3]
+    const day4 = recommendedData[(cookies.input).toString()[0]][(cookies.input).toString()[1]][4]
+    const day5 = recommendedData[(cookies.input).toString()[0]][(cookies.input).toString()[1]][5]
+    const day6 = recommendedData[(cookies.input).toString()[0]][(cookies.input).toString()[1]][6]
+    const day7 = recommendedData[(cookies.input).toString()[0]][(cookies.input).toString()[1]][7]
     return (
         <Tabs isFitted size = 'lg' variant = "enclosed">
   <TabList>

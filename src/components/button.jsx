@@ -1,4 +1,5 @@
-import data from "../data";
+import { recommendedData, personalizedData, updatePersonalizedData } from "../data";
+
 
 function Button(props) {
 
@@ -13,17 +14,20 @@ function Button(props) {
             // Get the current value of dayDropdownInput, convert to a number and add 1
             const dayValue = parseInt(dayDropdownInput.value, 10); // Convert to integer
             const incrementedDayValue = dayValue + 1; // Increment by 1
-    
             // Get the value of goalDropdownInput
             const goalValue = goalDropdownInput.value;
-            for(let i = 1; i<=Object.keys(data[incrementedDayValue][goalValue]).length; i++){
+            console.log(goalValue, incrementedDayValue)
+
+            for(let i = 1; i<=Object.keys(recommendedData[incrementedDayValue][goalValue]).length; i++){
                 //for(let j = 0; j<Object.keys(data[incrementedDayValue][goalValue][i]).length; j++){
 
                 // console.log(data[incrementedDayValue][goalValue][i][j])
-                console.log(data[incrementedDayValue][goalValue][i])
+                console.log(recommendedData[incrementedDayValue][goalValue][i])
 
                 // props.setCookie("day"+i+"e"+j, `${data[incrementedDayValue][goalValue][i][j]}`)
-                props.setCookie("day"+i, `${data[incrementedDayValue][goalValue][i]}`)
+               //props.setCookie("day"+i, `${recommendedData[incrementedDayValue][goalValue][i]}`)
+               console.log(recommendedData[incrementedDayValue][goalValue])
+               updatePersonalizedData(recommendedData[incrementedDayValue][goalValue])
 
                 
                 // dayData.push(data[(cookies.input).toString()[0]][(cookies.input).toString()[1]][i])

@@ -1,4 +1,4 @@
-  const data = {
+  const recommendedData = {
     "2": {
       "1":{
         1: [["Bench Press", 3, "5-8"], 
@@ -529,4 +529,13 @@
 
     }
   };
-export default data
+let personalizedData = {};
+const updatePersonalizedData = (week, day, exerciseList) => {
+  // Ensure the structure for the given week and day exists
+  if (!personalizedData[week]) personalizedData[week] = {};
+  personalizedData[week][day] = exerciseList;
+};
+
+export {updatePersonalizedData}
+export { personalizedData };
+export { recommendedData};
