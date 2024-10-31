@@ -1,8 +1,8 @@
 const personalizedData = {};
-const updatePersonalizedData = (week, day, exerciseList) => {
+const updatePersonalizedData = (data) => {
+  console.log(data)
   // Ensure the structure for the given week and day exists
-  if (!personalizedData[week]) personalizedData[week] = {};
-  personalizedData[week][day] = exerciseList;
+  personalizedData = data;
 };
 
 export {updatePersonalizedData}

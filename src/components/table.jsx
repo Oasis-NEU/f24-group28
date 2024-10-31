@@ -10,36 +10,55 @@ import {
 } from '@chakra-ui/react';
 
 function WorkoutTable({ dayData }) {
-    //console.log(dayData)
-    console.log(dayData)
-  // Parse the dayData into a flat array for the table
-  const tableData = Object.entries(dayData).flatMap((dayExercises, dayIndex) => {
-    // Check if the day is a rest day
-    console.log(dayExercises)
-    if (dayExercises.length === 1 && dayExercises[0].toLowerCase() === 'rest') {
-      return [{
-        day: dayIndex + 1,
-        exercise: 'Rest Day',
-        sets: '',
-        reps: '',
-        isFirstInDay: true,
-        isLastInDay: true,
-      }];
+  console.log('Initial dayData:', dayData); // Log the entire structure
+
+  const entries = Object.entries(dayData); // Get entries from the dictionary
+  console.log('Entries:', entries); // Log entries
+
+  const tableData = entries.flatMap(([day, dayExercises]) => {
+    console.log('Processing day:', day, 'Data:', dayExercises); // Log each day's data
+
+    // Check if the dayExercises is an array
+    if (Array.isArray(dayExercises)) {
+      // Check if the day contains a rest day
+      if (dayExercises.includes('rest')) {
+        console.log(`Adding Rest Day entry for ${day}`);
+        return [{
+          day,
+          exercise: 'Rest Day',
+          sets: '',
+          reps: '',
+          isFirstInDay: true,
+          isLastInDay: true,
+        }];
+      } else {
+        // If dayExercises is a workout array
+        return dayExercises.map((exerciseData, idx) => {
+          console.log('Exercise Data:', exerciseData); // Log exercise data
+          if (Array.isArray(exerciseData) && exerciseData.length === 3) {
+            const [exercise, sets, reps] = exerciseData;
+            console.log(`Adding exercise: ${exercise}, Sets: ${sets}, Reps: ${reps}`);
+            return {
+              day,
+              exercise,
+              sets,
+              reps,
+              isFirstInDay: idx === 0,
+              isLastInDay: idx === dayExercises.length - 1,
+            };
+          } else {
+            console.warn(`Unexpected exercise data format for ${day}:`, exerciseData);
+            return null; // Return null if the data format is unexpected
+          }
+        }).filter(Boolean); // Filter out null values
+      }
     } else {
-      // For each exercise in the day
-      return dayExercises.map((exerciseData, idx) => {
-        const [exercise, sets, reps] = exerciseData;
-        return {
-          day: dayIndex + 1,
-          exercise: exercise,
-          sets: sets,
-          reps: reps,
-          isFirstInDay: idx === 0,
-          isLastInDay: idx === dayExercises.length - 1,
-        };
-      });
+      console.warn(`Unexpected format for dayExercises on ${day}:`, dayExercises);
+      return []; // Return empty if the structure is not as expected
     }
   });
+
+  console.log('Final tableData:', tableData); // Log the final flattened table data
 
   return (
     <Box>
