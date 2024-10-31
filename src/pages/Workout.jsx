@@ -37,7 +37,7 @@ console.log(recommendedData)
     //className = "w-full"
     <div>
       {/* <Schedule cookies = {cookies} ></Schedule> */}
-    <WorkoutTable dayData={dayData} />
+    <WorkoutTable dayData= {recommendedData} />
     </div>
     
   );

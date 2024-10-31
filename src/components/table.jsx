@@ -10,9 +10,12 @@ import {
 } from '@chakra-ui/react';
 
 function WorkoutTable({ dayData }) {
+    //console.log(dayData)
+    console.log(dayData)
   // Parse the dayData into a flat array for the table
-  const tableData = dayData.flatMap((dayExercises, dayIndex) => {
+  const tableData = Object.entries(dayData).flatMap((dayExercises, dayIndex) => {
     // Check if the day is a rest day
+    console.log(dayExercises)
     if (dayExercises.length === 1 && dayExercises[0].toLowerCase() === 'rest') {
       return [{
         day: dayIndex + 1,
