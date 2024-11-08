@@ -13,8 +13,10 @@ function Workout() {
   // console.log('Recommended Data:', recommendedData);
   console.log('Personalized Data:', personalizedData);
   return (
-    <div>
-      <WorkoutTable dayData={personalizedData} />
+    <div className="flex items-center justify-center min-h-screen bg-gray-800 text-white">
+      <div className="w-full max-w-4xl flex justify-center">
+        <WorkoutTable dayData={personalizedData} />
+      </div>
     </div>
   );
 }

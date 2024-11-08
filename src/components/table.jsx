@@ -61,32 +61,43 @@ function WorkoutTable({ dayData }) {
   console.log('Final tableData:', tableData); // Log the final flattened table data
 
   return (
-    <Box>
-      <Table variant="simple">
-        <Thead>
-          <Tr borderBottom="2px solid" borderColor="gray.400">
-            <Th>Day #</Th>
-            <Th>Exercise</Th>
-            <Th>Sets</Th>
-            <Th>Reps</Th>
-          </Tr>
-        </Thead>
-        <Tbody>
-          {tableData.map((row, index) => (
-            <Tr
-              key={index}
-              borderBottom={row.isLastInDay ? '2px solid' : '1px solid'}
-              borderColor={row.isLastInDay ? 'gray.200' : 'gray.200'}
-            >
-              <Td>{row.isFirstInDay ? row.day : ''}</Td>
-              <Td>{row.exercise}</Td>
-              <Td>{row.sets}</Td>
-              <Td>{row.reps}</Td>
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-800 text-white">
+      <div className="text-center mb-8">
+        <h1 className="text-2xl font-bold">Workout Plan</h1>
+      </div>
+      <Box className="w-full max-w-4xl">
+        <Table variant="simple">
+          <Thead>
+            <Tr borderBottom="2px solid" borderColor="gray.400">
+              <Th>Day #</Th>
+              <Th>Exercise</Th>
+              <Th>Sets</Th>
+              <Th>Reps</Th>
             </Tr>
-          ))}
-        </Tbody>
-      </Table>
-    </Box>
+          </Thead>
+          <Tbody>
+            {tableData.length === 0 ? (
+              <Tr>
+                <Td colSpan="4" textAlign="center">No data available</Td>
+              </Tr>
+            ) : (
+              tableData.map((row, index) => (
+                <Tr
+                  key={index}
+                  borderBottom={row.isLastInDay ? '2px solid' : '1px solid'}
+                  borderColor={row.isLastInDay ? 'gray.200' : 'gray.200'}
+                >
+                  <Td>{row.isFirstInDay ? row.day : ''}</Td>
+                  <Td>{row.exercise}</Td>
+                  <Td>{row.sets}</Td>
+                  <Td>{row.reps}</Td>
+                </Tr>
+              ))
+            )}
+          </Tbody>
+        </Table>
+      </Box>
+    </div>
   );
 }
 
