@@ -524,18 +524,12 @@
       ],
       5: ["rest"]
     }
-
-
-
     }
   };
-let personalizedData = {};
-const updatePersonalizedData = (week, day, exerciseList) => {
-  // Ensure the structure for the given week and day exists
-  if (!personalizedData[week]) personalizedData[week] = {};
-  personalizedData[week][day] = exerciseList;
-};
+  
+export const personalizedData = {};
+export {recommendedData};
+export function updatePersonalizedData(newData) {
+  Object.assign(personalizedData, newData);
+}
 
-export {updatePersonalizedData}
-export { personalizedData };
-export { recommendedData};

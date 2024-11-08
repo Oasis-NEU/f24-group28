@@ -1,5 +1,5 @@
-import { recommendedData } from "../data";
-import { personalizedData, updatePersonalizedData } from "../personalizedData"
+import { recommendedData, updatePersonalizedData } from "../data";
+// import { personalizedData, updatePersonalizedData } from "../personalizedData"
 
 
 function Button(props) {

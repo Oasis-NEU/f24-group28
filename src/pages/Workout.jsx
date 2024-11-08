@@ -1,6 +1,6 @@
 import React from 'react';
 import WorkoutTable from '../components/table';
-import { recommendedData } from '../data';
+import { recommendedData, personalizedData, updatePersonalizedData} from '../data';
 
 function Workout() {
   const mockData = {
@@ -10,11 +10,11 @@ function Workout() {
   };
   
   // Log recommendedData to verify its structure
-  console.log('Recommended Data:', recommendedData);
-
+  // console.log('Recommended Data:', recommendedData);
+  console.log('Personalized Data:', personalizedData);
   return (
     <div>
-      <WorkoutTable dayData={recommendedData} />
+      <WorkoutTable dayData={personalizedData} />
     </div>
   );
 }

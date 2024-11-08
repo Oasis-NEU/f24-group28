@@ -1,9 +1,5 @@
-const personalizedData = {};
-const updatePersonalizedData = (data) => {
-  console.log(data)
-  // Ensure the structure for the given week and day exists
-  personalizedData = data;
-};
+// export const personalizedData = {};
 
-export {updatePersonalizedData}
-export { personalizedData };
+// export function updatePersonalizedData(newData) {
+//   Object.assign(personalizedData, newData);
+// }
