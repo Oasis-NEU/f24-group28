@@ -12,60 +12,70 @@ import {
 function WorkoutTable({ dayData }) {
   console.log('Initial dayData:', dayData); // Log the entire structure
 
-  const entries = Object.entries(dayData); // Get entries from the dictionary
-  console.log('Entries:', entries); // Log entries
+  const tableData = [];
 
-  const tableData = entries.flatMap(([day, dayExercises]) => {
-    console.log('Processing day:', day, 'Data:', dayExercises); // Log each day's data
+  // Iterate over programs
+  Object.entries(dayData).forEach(([programNumber, weeks]) => {
+    console.log('Processing Program:', programNumber);
+    // Iterate over weeks
+    Object.entries(weeks).forEach(([weekNumber, days]) => {
+      console.log('Processing Week:', weekNumber);
+      // Iterate over days
+      Object.entries(days).forEach(([dayNumber, dayExercises]) => {
+        console.log('Processing Day:', dayNumber, 'Data:', dayExercises);
 
-    // Check if the dayExercises is an array
-    if (Array.isArray(dayExercises)) {
-      // Check if the day contains a rest day
-      if (dayExercises.includes('rest')) {
-        console.log(`Adding Rest Day entry for ${day}`);
-        return [{
-          day,
-          exercise: 'Rest Day',
-          sets: '',
-          reps: '',
-          isFirstInDay: true,
-          isLastInDay: true,
-        }];
-      } else {
-        // If dayExercises is a workout array
-        return dayExercises.map((exerciseData, idx) => {
-          console.log('Exercise Data:', exerciseData); // Log exercise data
-          if (Array.isArray(exerciseData) && exerciseData.length === 3) {
-            const [exercise, sets, reps] = exerciseData;
-            console.log(`Adding exercise: ${exercise}, Sets: ${sets}, Reps: ${reps}`);
-            return {
-              day,
-              exercise,
-              sets,
-              reps,
-              isFirstInDay: idx === 0,
-              isLastInDay: idx === dayExercises.length - 1,
-            };
+        if (Array.isArray(dayExercises)) {
+          if (dayExercises.includes('rest')) {
+            // Rest day
+            tableData.push({
+              program: programNumber,
+              week: weekNumber,
+              day: dayNumber,
+              exercise: 'Rest Day',
+              sets: '',
+              reps: '',
+            });
           } else {
-            console.warn(`Unexpected exercise data format for ${day}:`, exerciseData);
-            return null; // Return null if the data format is unexpected
+            // Exercises
+            dayExercises.forEach((exerciseData) => {
+              if (Array.isArray(exerciseData) && exerciseData.length === 3) {
+                const [exercise, sets, reps] = exerciseData;
+                tableData.push({
+                  program: programNumber,
+                  week: weekNumber,
+                  day: dayNumber,
+                  exercise,
+                  sets,
+                  reps,
+                });
+              } else {
+                console.warn(
+                  `Unexpected exercise data format for Program ${programNumber}, Week ${weekNumber}, Day ${dayNumber}:`,
+                  exerciseData
+                );
+              }
+            });
           }
-        }).filter(Boolean); // Filter out null values
-      }
-    } else {
-      console.warn(`Unexpected format for dayExercises on ${day}:`, dayExercises);
-      return []; // Return empty if the structure is not as expected
-    }
+        } else {
+          console.warn(
+            `Unexpected format for dayExercises on Program ${programNumber}, Week ${weekNumber}, Day ${dayNumber}:`,
+            dayExercises
+          );
+        }
+      });
+    });
   });
 
-  console.log('Final tableData:', tableData); // Log the final flattened table data
+  console.log('Final tableData:', tableData);
 
   return (
     <Box>
-      <Table variant="simple">
+      <Table>
         <Thead>
-          <Tr borderBottom="2px solid" borderColor="gray.400">
-            <Th>Day #</Th>
+          <Tr>
+            <Th>Program</Th>
+            <Th>Week</Th>
+            <Th>Day</Th>
             <Th>Exercise</Th>
             <Th>Sets</Th>
             <Th>Reps</Th>
@@ -73,12 +83,10 @@ function WorkoutTable({ dayData }) {
         </Thead>
         <Tbody>
           {tableData.map((row, index) => (
-            <Tr
-              key={index}
-              borderBottom={row.isLastInDay ? '2px solid' : '1px solid'}
-              borderColor={row.isLastInDay ? 'gray.200' : 'gray.200'}
-            >
-              <Td>{row.isFirstInDay ? row.day : ''}</Td>
+            <Tr key={index}>
+              <Td>{row.program}</Td>
+              <Td>{row.week}</Td>
+              <Td>{row.day}</Td>
               <Td>{row.exercise}</Td>
               <Td>{row.sets}</Td>
               <Td>{row.reps}</Td>
