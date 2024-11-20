@@ -44,8 +44,8 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <ChakraProvider>
-    <CookiesProvider>
-      <RouterProvider router={router} />
+      <CookiesProvider>
+        <RouterProvider router={router} />
       </CookiesProvider>
     </ChakraProvider>
   </React.StrictMode>

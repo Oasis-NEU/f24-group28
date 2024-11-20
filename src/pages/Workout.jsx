@@ -1,6 +1,6 @@
 import React from 'react';
 import WorkoutTable from '../components/table';
-import { recommendedData, personalizedData, updatePersonalizedData} from '../data';
+import { recommendedData, personalizedData, updatePersonalizedData } from '../data';
 
 function Workout() {
   const mockData = {
@@ -8,13 +8,12 @@ function Workout() {
     "2": ["rest"],
     "3": [["Squats", "4", "12"], ["Lunges", "4", "10"]],
   };
-  
-  // Log recommendedData to verify its structure
-  // console.log('Recommended Data:', recommendedData);
+
   console.log('Personalized Data:', personalizedData);
+
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-800 text-white">
-      <div className="w-full max-w-4xl flex justify-center">
+      <div className="w-full max-w-4xl mx-auto">
         <WorkoutTable dayData={personalizedData} />
       </div>
     </div>

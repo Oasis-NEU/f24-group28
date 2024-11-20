@@ -7,22 +7,18 @@ import {
   Th,
   Td,
   Box,
+  Heading,
 } from '@chakra-ui/react';
 
 function WorkoutTable({ dayData }) {
-  console.log('Initial dayData:', dayData); // Log the entire structure
+  console.log('Initial dayData:', dayData);
 
-  const entries = Object.entries(dayData); // Get entries from the dictionary
-  console.log('Entries:', entries); // Log entries
+  const entries = Object.entries(dayData);
+  console.log('Entries:', entries);
 
   const tableData = entries.flatMap(([day, dayExercises]) => {
-    console.log('Processing day:', day, 'Data:', dayExercises); // Log each day's data
-
-    // Check if the dayExercises is an array
     if (Array.isArray(dayExercises)) {
-      // Check if the day contains a rest day
       if (dayExercises.includes('rest')) {
-        console.log(`Adding Rest Day entry for ${day}`);
         return [{
           day,
           exercise: 'Rest Day',
@@ -32,12 +28,9 @@ function WorkoutTable({ dayData }) {
           isLastInDay: true,
         }];
       } else {
-        // If dayExercises is a workout array
         return dayExercises.map((exerciseData, idx) => {
-          console.log('Exercise Data:', exerciseData); // Log exercise data
           if (Array.isArray(exerciseData) && exerciseData.length === 3) {
             const [exercise, sets, reps] = exerciseData;
-            console.log(`Adding exercise: ${exercise}, Sets: ${sets}, Reps: ${reps}`);
             return {
               day,
               exercise,
@@ -46,27 +39,19 @@ function WorkoutTable({ dayData }) {
               isFirstInDay: idx === 0,
               isLastInDay: idx === dayExercises.length - 1,
             };
-          } else {
-            console.warn(`Unexpected exercise data format for ${day}:`, exerciseData);
-            return null; // Return null if the data format is unexpected
           }
-        }).filter(Boolean); // Filter out null values
+          return null;
+        }).filter(Boolean);
       }
-    } else {
-      console.warn(`Unexpected format for dayExercises on ${day}:`, dayExercises);
-      return []; // Return empty if the structure is not as expected
     }
+    return [];
   });
 
-  console.log('Final tableData:', tableData); // Log the final flattened table data
-
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-800 text-white">
-      <div className="text-center mb-8">
-        <h1 className="text-2xl font-bold">Workout Plan</h1>
-      </div>
-      <Box className="w-full max-w-4xl">
-        <Table variant="simple">
+    <Box className="flex items-center justify-center w-full min-h-screen bg-gray-800 text-white">
+      <Box maxW="4xl" w="full" mx="auto" p={6} textAlign="center">
+        <Heading mb={8}>Workout Plan</Heading>
+        <Table variant="simple" width="100%">
           <Thead>
             <Tr borderBottom="2px solid" borderColor="gray.400">
               <Th>Day #</Th>
@@ -85,7 +70,7 @@ function WorkoutTable({ dayData }) {
                 <Tr
                   key={index}
                   borderBottom={row.isLastInDay ? '2px solid' : '1px solid'}
-                  borderColor={row.isLastInDay ? 'gray.200' : 'gray.200'}
+                  borderColor="gray.200"
                 >
                   <Td>{row.isFirstInDay ? row.day : ''}</Td>
                   <Td>{row.exercise}</Td>
@@ -97,7 +82,7 @@ function WorkoutTable({ dayData }) {
           </Tbody>
         </Table>
       </Box>
-    </div>
+    </Box>
   );
 }
 
