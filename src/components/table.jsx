@@ -61,7 +61,7 @@ function WorkoutTable({ dayData, updateExercise, deleteExercise }) {
   return (
     <div className="flex flex-col min-h-screen bg-gray-800 text-white w-full items-center">
       <div className="text-center mt-4">
-        <h1 className="text-2xl font-bold">Workout Plan</h1>
+        <h1 className="text-3xl font-bold mb-4">Workout Plan</h1>
       </div>
       <Box className="w-full max-w-4xl overflow-x-auto">
         <Table variant="simple" style={{ tableLayout: 'fixed' }}>
