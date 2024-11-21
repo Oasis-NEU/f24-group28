@@ -1,3 +1,4 @@
+//pages/intro.jsx
 import React from 'react';
 import { Link } from "react-router-dom";
 import Button from '../components/button';
@@ -6,25 +7,9 @@ import { Stack } from '@chakra-ui/react'
 import Title from "../components/title";
 import DayDropdown from '../components/dayDropdown';
 import GoalDropdown from '../components/goalDropdown';
-import { CookiesProvider, useCookies } from 'react-cookie'
-import { useEffect } from 'react';
-import { Navigate } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
-import { useLocation } from 'react-router-dom';
 
 
-function Intro() {
-    const navigate = useNavigate();
-    const location = useLocation();
-    const [cookies, setCookie] = useCookies(['user'])
-    useEffect(() => {
-        if(location.pathname == "/intro" && cookies.input != null){
-            navigate('/workout')
-          }
-    },
-    []
-    )
-     
+function Intro() {     
     return (
       <div className="w-full min-h-screen bg-gray-800 text-white flex items-center justify-center">
           <div className="w-full max-w-2xl">
@@ -42,7 +27,7 @@ function Intro() {
               <div className="h-1/2 flex justify-center m-10">
                   <div className="flex items-end">
                       <Link to="/workout" relative="path">
-                          <Button setCookie={setCookie} size = "sm"/>
+                          <Button/>
                       </Link>
                   </div>
               </div>

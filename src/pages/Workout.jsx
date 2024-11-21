@@ -1,27 +1,47 @@
-import React from 'react';
+// pages/Workout.jsx
+import React, { useState, useEffect } from 'react';
 import WorkoutTable from '../components/table';
-import { recommendedData, personalizedData, updatePersonalizedData} from '../data';
+import { personalizedData } from '../data';
 
 function Workout() {
-  const updateExercise = (day, originalExercise, newExercise) => {
-    if (personalizedData[day]) {
-      personalizedData[day] = personalizedData[day].map((exerciseData) => {
+  const [personalizedStateData, setPersonalizedStateData] = useState({});
+
+  useEffect(() => {
+    // Initialize state with personalizedData
+    setPersonalizedStateData({ ...personalizedData });
+  }, []);
+
+  const updateExercise = (day, originalExercise, newExercise, newSets, newReps) => {
+    if (personalizedStateData[day]) {
+      personalizedStateData[day] = personalizedStateData[day].map((exerciseData) => {
         if (Array.isArray(exerciseData) && exerciseData[0] === originalExercise) {
-          return [newExercise, exerciseData[1], exerciseData[2]];
+          return [newExercise, newSets, newReps];
         }
         return exerciseData;
       });
-      console.log(`Updated personalizedData for Day ${day}:`, personalizedData[day]);
+      setPersonalizedStateData({ ...personalizedStateData });
+      console.log(`Updated personalizedData for Day ${day}:`, personalizedStateData[day]);
     }
   };
-  
-  // Log recommendedData to verify its structure
-  // console.log('Recommended Data:', recommendedData);
-  console.log('Personalized Data:', personalizedData);
+
+  const deleteExercise = (day, exerciseToDelete) => {
+    if (personalizedStateData[day]) {
+      personalizedStateData[day] = personalizedStateData[day].filter(
+        (exData) => exData[0] !== exerciseToDelete
+      );
+      setPersonalizedStateData({ ...personalizedStateData });
+      console.log(`Deleted exercise from Day ${day}:`, personalizedStateData[day]);
+    }
+  };
+
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-800 text-white">
+    <div className="flex min-h-screen bg-gray-800 text-white w-full justify-center">
       <div className="w-full max-w-4xl flex justify-center">
-        <WorkoutTable dayData={personalizedData} updateExercise={updateExercise} />
+        <WorkoutTable
+          dayData={personalizedStateData}
+          updateExercise={updateExercise}
+          deleteExercise={deleteExercise}
+        />
       </div>
     </div>
   );
