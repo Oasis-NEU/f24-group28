@@ -8,7 +8,8 @@ import {
   Th,
   Td,
   Box,
-  Button, // Import Button component from Chakra UI
+  Button,
+  Center, // Import Button component from Chakra UI
 } from '@chakra-ui/react';
 
 // Import necessary icons
@@ -68,8 +69,8 @@ function WorkoutTable({ dayData, updateExercise, deleteExercise }) {
             <Tr borderBottom="2px solid" borderColor="gray.400">
               <Th style={{ width: '10%', whiteSpace: 'nowrap' }}>Day #</Th>
               <Th style={{ width: '40%', whiteSpace: 'nowrap' }}>Exercise</Th>
-              <Th style={{ width: '15%', whiteSpace: 'nowrap' }}>Sets</Th>
-              <Th style={{ width: '15%', whiteSpace: 'nowrap' }}>Reps</Th>
+              <Th style={{ width: '15%', whiteSpace: 'nowrap' , textAlign: 'center'}}>Sets</Th>
+              <Th style={{ width: '15%', whiteSpace: 'nowrap', textAlign: 'center'}}>Reps</Th>
               <Th style={{ width: '20%' }}></Th> {/* Empty header for Actions column */}
             </Tr>
           </Thead>
